@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<!-- Parent section is common for all cwf.core.* artifacts -->
+	<parent>
+		<groupId>com.att.tta</groupId>
+		<artifactId>tta-parent</artifactId>
+		<version>1.0.0</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.att.tta.sig</groupId>
+	<artifactId>sig-batch-framework</artifactId>
+	<version>1.0.4-SNAPSHOT</version>
+
+	<properties>
+		<maven.test.failure.ignore>true</maven.test.failure.ignore>
+		<spring.framework.version>3.2.2.RELEASE</spring.framework.version>
+		<spring.batch.version>2.1.7.RELEASE</spring.batch.version>
+	</properties>
+
+	<scm>
+		<developerConnection>scm:svn:svn://scm.it.att.com:13135/tta/sig/sig-batch-framework/branches/1.0</developerConnection>
+		<connection>scm:svn:svn://scm.it.att.com:13135/tta/common/tta-parent/tags/tta-parent-1.0.0/sig-batch-framework</connection>
+		<url>https://scm.it.att.com:8443/viewvc/cgi-bin/viewvc.cgi/csi_d/tta/common/tta-parent/tags/tta-parent-1.0.0/sig-batch-framework</url>
+	</scm>
+
+	<dependencies>
+		
+		<!-- Added for SWN REST API START-->
+		<dependency>
+			<groupId>com.att.aft.swm</groupId>
+			<artifactId>swm-common</artifactId>
+			<version>[1.5-SNAPSHOT,1.5.9999)</version>
+		</dependency>
+		
+		<dependency>
+		<groupId>org.apache.geronimo.bundles</groupId>
+        <artifactId>backport-util-concurrent</artifactId>
+        <version>2.2_1</version>
+        </dependency>
+        
+		<dependency>
+			<groupId>com.att.aft.discovery</groupId>
+			<artifactId>discovery-clt</artifactId>
+			<version>5.0.2</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>junit</artifactId>
+					<groupId>junit</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- Added for SWN REST API DONE -->
+		
+		
+		<dependency>
+			<groupId>com.att.tta.xmlComparatorUtility</groupId>
+			<artifactId>xmlComparatorUtility</artifactId>
+			<version>0.0.10</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>org.codehaus.groovy</groupId>
+		  <artifactId>groovy</artifactId>
+		  <version>2.1.0-rc-1</version>		  
+		</dependency>
+	
+		
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.3.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.7.1</version>
+		</dependency>
+
+		
+				
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-csv</artifactId>
+			<version>1.0</version>
+		</dependency>
+          <dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.6</version>
+		</dependency>
+       
+
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>1.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.7.2</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jdom</groupId>
+			<artifactId>jdom</artifactId>
+			<version>1.1.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jdom</groupId>
+			<artifactId>jdom-contrib</artifactId>
+			<version>1.1.3</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.xml.soap</groupId>
+			<artifactId>saaj-api</artifactId>
+			<version>1.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.messaging.saaj</groupId>
+			<artifactId>saaj-impl</artifactId>
+			<version>1.3</version>
+		</dependency>
+		<dependency>
+			<groupId>xmlunit</groupId>
+			<artifactId>xmlunit</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.7</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.framework.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.batch</groupId>
+			<artifactId>spring-batch-core</artifactId>
+			<version>${spring.batch.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.batch</groupId>
+			<artifactId>spring-batch-infrastructure</artifactId>
+			<version>${spring.batch.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-dbcp</groupId>
+			<artifactId>commons-dbcp</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.14</version>
+		</dependency>
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.2.0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.att.tta.grid</groupId>
+			<artifactId>gridcall-transform</artifactId>
+			<version>0.0.13</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.att.tta.sig</groupId>
+			<artifactId>sig-xpdl-transform</artifactId>
+			<version>1.0.70</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.tmatesoft.svnkit</groupId>
+			<artifactId>svnkit</artifactId>
+			<version>1.7.5-v1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.kevinsawicki</groupId>
+			<artifactId>http-request</artifactId>
+			<version>5.5</version>
+		</dependency>
+		
+        
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpmime</artifactId>
+			<version>4.3.3</version>
+		</dependency>
+		
+		
+		
+	
+    
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>1.3.2</version>
+      <scope>compile</scope>
+    </dependency>
+	
+		
+		<dependency>
+			<groupId>com.fasterxml.jackson.jaxrs</groupId>
+			<artifactId>jackson-jaxrs-json-provider</artifactId>
+			<version>2.2.1</version>
+		</dependency>
+		
+		<!-- QBot Dependencies -->
+		<dependency>
+		  <groupId>com.att.tta.qbot</groupId>
+		  <artifactId>q-bots</artifactId>
+		  <version>1.0.0</version>	  
+		</dependency>
+	
+	     <dependency>
+	  		<groupId>com.att.tta.qbot</groupId>
+	  		<artifactId>q2</artifactId>
+	  		<version>1.0.0</version>
+		</dependency>
+		
+	    <dependency>
+		  <groupId>com.att.tta.qbot</groupId>
+		  <artifactId>q-api</artifactId>
+		  <version>1.0.0</version>	  
+		</dependency>
+		
+	    <dependency>
+		  <groupId>com.att.tta.qbot</groupId>
+		  <artifactId>q-common</artifactId>
+		  <version>1.0.0</version>	  
+		</dependency>
+		
+		
+		<!-- REMEDY -->
+		<dependency>
+		  <groupId>com.att.tta.arapi7604_build002</groupId>
+		  <artifactId>arapi7604_build002</artifactId>
+		  <version>1.0</version>
+		  <classifier>arapi7604_build002</classifier>
+		</dependency>
+		
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<filters>
+						<filter>
+							<artifact>*:*</artifact>
+							<excludes>
+								<exclude>META-INF/*.SF</exclude>
+								<exclude>META-INF/*.DSA</exclude>
+								<exclude>META-INF/*.RSA</exclude>
+							</excludes>
+						</filter>
+					</filters>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id> <!-- this is used for inheritance merges -->
+						<phase>package</phase> <!-- bind to the packaging phase -->
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.1</version>
+				<configuration>
+					<mainClass>org.springframework.batch.core.launch.support.CommandLineJobRunner</mainClass>
+					<arguments>
+						<!-- job configuration file -->
+						<argument>classpath:/launch-context.xml</argument>
+						<!-- job name -->
+						<argument>job1</argument>
+					</arguments>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<index>true</index>
+						<manifest>
+							<mainClass>org.springframework.batch.core.launch.support.CommandLineJobRunner</mainClass>
+							<addClasspath>true</addClasspath>
+							<classpathPrefix>lib/</classpathPrefix>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<transformers>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+									<resource>META-INF/spring.handlers</resource>
+								</transformer>
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+									<resource>META-INF/spring.schemas</resource>
+								</transformer>
+							</transformers>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.6</version>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}</outputDirectory>
+							<overWriteReleases>false</overWriteReleases>
+							<overWriteSnapshots>false</overWriteSnapshots>
+							<overWriteIfNewer>true</overWriteIfNewer>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											org.apache.maven.plugins
+										</groupId>
+										<artifactId>
+											maven-dependency-plugin
+										</artifactId>
+										<versionRange>
+											[2.6,)
+										</versionRange>
+										<goals>
+											<goal>
+												copy-dependencies
+											</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
