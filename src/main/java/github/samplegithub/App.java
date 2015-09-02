@@ -28,7 +28,7 @@ public class App
 			e1.printStackTrace();
 		}
     	
-		try {
+		try {   // sample file edited
 			lst = GitHub.connectAnonymously().getUser("sa537b").getRepositories().values();
 			for (GHRepository r : lst) {
 				System.out.println(r.getBranches());
