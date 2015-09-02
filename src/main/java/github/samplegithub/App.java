@@ -28,7 +28,7 @@ public class App
 			e1.printStackTrace();
 		}
     	
-		try {   // sample file edited
+	/*	try {   // sample file edited
 			lst = GitHub.connectAnonymously().getUser("sa537b").getRepositories().values();
 			for (GHRepository r : lst) {
 				System.out.println(r.getBranches());
@@ -38,7 +38,7 @@ public class App
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
         
 		/*File gitWorkDir = new File("https://github.com/att-innovate/");
 	    Git git;
