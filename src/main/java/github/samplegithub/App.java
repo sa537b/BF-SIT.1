@@ -21,8 +21,8 @@ public class App
     	try {
 			GitHub github = GitHub.connectToEnterprise("https://github.com/att-innovate/BF-SIT.1.git", "sa537b", "samy@june2015");
 			GHRepository repo = github.getRepository("");
-			ghBranch = repo.getBranches();
-			System.out.println(ghBranch);
+		//	ghBranch = repo.getBranches();
+		//	System.out.println(ghBranch);
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
